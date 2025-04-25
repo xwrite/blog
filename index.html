@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <!-- <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="imgs/Icon-192.jpg">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="imgs/Icon-192.jpg">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="imgs/Icon-192.jpg">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="imgs/Icon-192.jpg"> -->
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="install-button" style="display: none;">添加到主屏幕</button>
+  <script>
+
+    // 注册 Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').then(registration => {
+      console.log('Service Worker 注册成功:', registration);
+    })
+    .catch(error => {
+      console.log('Service Worker 注册失败:', error);
+    });
+    }
+
+    // 监听安装事件
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      console.log('beforeinstallprompt');
+      e.preventDefault();
+      deferredPrompt = e;
+      const installButton = document.getElementById('install-button');
+      installButton.style.display = 'block';
+
+      installButton.addEventListener('click', () => {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('安装成功');
+          }
+          installButton.style.display = 'none';
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
