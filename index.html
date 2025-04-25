@@ -19,7 +19,7 @@
   <button id="installBtn" style="display: none;">安装应用</button>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
+      navigator.serviceWorker.register('sw.js')
         .then(() => console.log('Service Worker 已注册'))
         .catch(error => console.log('注册失败:', error));
     }
