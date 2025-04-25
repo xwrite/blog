@@ -14,33 +14,9 @@
     }
   ],
   "id": "/?source=pwa",
-  "start_url": "/?source=pwa",
+  "start_url": "",
   "background_color": "#3367D6",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#3367D6",
-  "shortcuts": [
-    {
-      "name": "How's the weather tomorrow?",
-      "short_name": "Tomorrow",
-      "description": "View weather information for tomorrow",
-      "url": "/",
-      "icons": [{ "src": "app_logo.png", "sizes": "192x192" }]
-    }
-  ],
-  "description": "Weather forecast information",
-  "screenshots": [
-    {
-      "src": "app_logo.png",
-      "type": "image/png",
-      "sizes": "540x720",
-      "form_factor": "narrow"
-    },
-    {
-      "src": "app_logo.png",
-      "type": "image/png",
-      "sizes": "720x540",
-      "form_factor": "wide"
-    }
-  ]
+  "theme_color": "#3367D6"
 }
