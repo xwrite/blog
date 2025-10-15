@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-  <link rel="manifest" href="manifest.json">
   <!-- <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="format-detection" content="telephone=no">
@@ -12,36 +11,11 @@
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="imgs/Icon-192.jpg">
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="imgs/Icon-192.jpg">
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="imgs/Icon-192.jpg"> -->
-  <title>Document</title>
+  <title>Hello</title>
 </head>
 
 <body>
-  <button id="installBtn" style="display: none;">安装应用</button>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(() => console.log('Service Worker 已注册'))
-        .catch(error => console.log('注册失败:', error));
-    }
-
-    let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-      // e.preventDefault();
-      deferredPrompt = e;
-      document.getElementById('installBtn').style.display = 'block';
-    });
-
-    document.getElementById('installBtn').addEventListener('click', () => {
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'accepted') {
-          console.log('用户已安装');
-        }
-        document.getElementById('installBtn').style.display = 'none';
-      });
-    });
-  </script>
+  <h1>Hello</h1>
 </body>
 
 </html>
